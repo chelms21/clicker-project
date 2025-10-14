@@ -35,7 +35,7 @@
         </div>
         <div class="big-part-yuh col-6 text-bg-dark border h-100 d-inline-block">
           2 of 3 (wider)
-          <img id="nugget" src="/img/mcnugget.png" class="img-fluid">
+          <img id="nugget" src="/img/mcnugget.png" class="img-fluid" style="--animate-duration:0.1s;">
         </div>
         <div class="big-part-yuh col text-bg-secondary border h-100 d-inline-block">
           3 of 3
@@ -49,7 +49,7 @@
         const animationName = `${prefix}${animation}`;
         const node = document.querySelector(element);
 
-        node.classList.add(`${prefix}animated`, animationName, `${prefix}faster`);
+        node.classList.add(`${prefix}animated`, animationName);
 
     // When the animation ends, we clean the classes and resolve the Promise
         function handleAnimationEnd(event) {
