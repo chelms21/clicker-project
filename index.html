@@ -74,7 +74,7 @@
 
       function bg_falling() {
         let newthing = document.createElement('img');
-        let newid = str('newthing' + Math.floor(Math.random() * 100000000000));
+        let newid = 'newthing' + `${Math.floor(Math.random() * 100000000000)}`;
         let position = Math.floor(Math.random() * middle_section.offsetWidth)
         newthing.id = newid;
         let size = middle_section.offsetWidth / 15;
