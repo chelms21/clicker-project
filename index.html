@@ -33,7 +33,7 @@
         <div class="big-part-yuh col text-bg-secondary border h-100 d-inline-block">
           1 of 3
         </div>
-        <div class="big-part-yuh col-6 text-bg-dark border h-100 d-inline-block">
+        <div id="middle_section" class="big-part-yuh col-6 text-bg-dark border h-100 d-inline-block">
           2 of 3 (wider)
           <img id="nugget" src="/img/mcnugget.png" class="img-fluid" style="--animate-duration:0.1s;">
         </div>
@@ -63,17 +63,35 @@
 
       let nuggets = 0;
       let cpc = 1;
-      
+
+      let nugget_img = '/img/mcnugget.png';
       const nugget = document.getElementById('nugget');
+      const middle_section = documcent.getElementById('middle_section');
 
       function handle_click() {
         nuggets = nuggets + cpc;
       };
 
+      function bg_falling() {
+        let newthing = document.createElement('img');
+        let newid = str('newthing' + Math.floor(Math.random() * 100000000000));
+        let position = Math.floor(Math.random() * middle_section.offsetWidth)
+        newthing.id = newid;
+        let size = middle_section.offsetWidth / 15;
+        newthing.style.height = size;
+        newthing.style.width = size;
+        newthing.src = nugget_img;
+        newthing.style.bottom = 0;
+        newthing.style.right = position;
+        animateCSS(newid, 'fadeInDownBig');
+      }
+
       nugget.onclick = function(){
         handle_click();
         animateCSS('#nugget', 'pulse');
       }
+
+      const bg_stuff = setInterval(bg_falling, 1000)
     </script>
   </body>
 </html>
