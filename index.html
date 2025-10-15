@@ -35,7 +35,7 @@
         </div>
         <div id="middle_section" class="big-part-yuh col-6 text-bg-dark border h-100 d-inline-block">
           2 of 3 (wider)
-          <img id="nugget" src="/img/mcnugget.png" class="img-fluid" style="--animate-duration:0.1s;">
+          <img id="nugget" src="/img/1-1.png" class="img-fluid" style="--animate-duration:0.1s;">
         </div>
         <div class="big-part-yuh col text-bg-secondary border h-100 d-inline-block">
           3 of 3
@@ -60,10 +60,20 @@
         node.addEventListener('animationend', handleAnimationEnd, {once: true});
       });
 
+      let nugget_img = '/img/1-1.png';
       let nuggets = 0;
       let cpc = 1;
+      let tier = 1;
+      let level = 1;
 
-      let nugget_img = '/img/mcnugget.png';
+      function update_nugget() {
+        if (tier == 11) {
+          nugget_img = '/img/final.png';
+        } else {
+          nugget_img = `${tier}-${level}.png`
+        }
+      }
+
       const nugget = document.getElementById('nugget');
       const middle_section = document.getElementById('middle_section');
 
@@ -71,26 +81,12 @@
         nuggets = nuggets + cpc;
       };
 
-      function bg_falling() {
-        let newthing = document.createElement('img');
-        let newid = 'newthing' + `${Math.floor(Math.random() * 100000000000)}`;
-        let position = Math.floor(Math.random() * middle_section.offsetWidth)
-        newthing.id = newid;
-        let size = middle_section.offsetWidth / 15;
-        newthing.style.height = size;
-        newthing.style.width = size;
-        newthing.src = nugget_img;
-        newthing.style.bottom = 0;
-        newthing.style.right = position;
-        animateCSS('#' + newid, 'fadeInDownBig');
-      }
-
       nugget.onclick = function(){
         handle_click();
         animateCSS('#nugget', 'pulse');
       }
 
-      const bg_stuff = setInterval(bg_falling, 1000)
+      setInterval(update_nugget, 1000);
     </script>
   </body>
 </html>
