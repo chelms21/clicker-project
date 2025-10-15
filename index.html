@@ -66,16 +66,17 @@
       let tier = 1;
       let level = 1;
 
+      const nugget = document.getElementById('nugget');
+      const middle_section = document.getElementById('middle_section');
+
       function update_nugget() {
         if (tier == 11) {
           nugget_img = '/img/final.png';
         } else {
           nugget_img = `${tier}-${level}.png`
         }
+        nugget.src = nugget_img;
       }
-
-      const nugget = document.getElementById('nugget');
-      const middle_section = document.getElementById('middle_section');
 
       function handle_click() {
         nuggets = nuggets + cpc;
