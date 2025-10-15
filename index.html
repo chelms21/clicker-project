@@ -23,6 +23,29 @@
       #nugget {
         height: 75vh;
       }
+
+      .color-change-2x {
+	      -webkit-animation: color-change-2x 2s linear infinite alternate both;
+	        animation: color-change-2x 2s linear infinite alternate both;
+      }
+
+      @-webkit-keyframes color-change-2x {
+        0% {
+          background: #19dcea;
+        }
+        100% {
+          background: #b22cff;
+        }
+      }
+      @keyframes color-change-2x {
+        0% {
+          background: #19dcea;
+        }
+        100% {
+          background: #b22cff;
+        }
+      }
+
     </style>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -37,7 +60,7 @@
         <div class="big-part-yuh col text-bg-secondary border h-100 d-inline-block">
           1 of 3
         </div>
-        <div id="middle_section" class="big-part-yuh col-6 text-bg-dark border h-100 d-inline-block">
+        <div id="middle_section" class="color-change-2x big-part-yuh col-6 border h-100 d-inline-block">
           2 of 3 (wider)
           <br>
           <img id="nugget" src="/img/1-1.png" class="img-fluid" style="--animate-duration:0.1s;">
