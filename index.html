@@ -5,19 +5,23 @@
       html, body {
         margin: 0;
         padding: 0;
-        height: 100%;
-        width: 100%;
+        min-height: 100vh;
+        max-height: 100vh;
+        max-width: 100hh;
+        min-width: 100hh;
         overflow: hidden;
+        display: grid;
+        place-items: center;
       }
 
       .big-part-yuh {
         width: 100%;
         min-height: 100vh;
         max-height: 100vh;
-        display: flex;
         justify-content: center;
         align-items: center;
         font-size: 1.5em;
+        place-items: center;
       }
 
       #nugget {
