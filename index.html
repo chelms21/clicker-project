@@ -59,19 +59,28 @@
     <div class="big-part-yuh text-center h-100 w-100 d-inline-block">
       <div class="row">
         <div class="big-part-yuh col text-bg-secondary border h-100 d-inline-block">
-          1 of 3
+          Upgrades
         </div>
         <div id="middle_section" class="color-change-2x big-part-yuh col-6 border h-100 d-inline-block">
-          2 of 3 (wider)
-          <br>
+		  Nugget Clicker
+		  <p id="nuggets">0</p>
           <img id="nugget" src="/img/1-1.png" class="img-fluid" style="--animate-duration:0.1s;">
         </div>
         <div class="big-part-yuh col text-bg-secondary border h-100 d-inline-block">
-          3 of 3
+          Generators
+		  <ul class="list-group">
+  			<li class="list-group-item">Fryer<button type="button" class="btn btn-primary justify-content-md-end">Buy</button></li>
+  			<li class="list-group-item">Chef</li>
+  			<li class="list-group-item">Farm</li>
+  			<li class="list-group-item">Restaraunt</li>
+			<li class="list-group-item">Store</li>
+			<li class="list-group-item">Factory</li>
+		  </ul>
         </div>
       </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/break_eternity.js@latest/break_eternity.min.js"></script>  
     <script>
       const animateCSS = (element, animation, prefix = 'animate__') =>
       new Promise((resolve, reject) => {
@@ -90,12 +99,13 @@
       });
 
       let nugget_img = '/img/1-1.png';
-      let nuggets = 0;
+      let nuggets = new Decimal(0);
       let cpc = 1;
       let tier = 1;
       let level = 1;
 
       const nugget = document.getElementById('nugget');
+	  const nugget_value = document.getElementById('nuggets');
       const middle_section = document.getElementById('middle_section');
 
       function update_nugget() {
@@ -108,13 +118,20 @@
       }
 
       function handle_click() {
-        nuggets = nuggets + cpc;
+        nuggets = nuggets.plus(cpc);
+		nugget_value.innerText = nuggets;
       };
 
       nugget.onclick = function(){
         handle_click();
         animateCSS('#nugget', 'pulse');
       }
+
+	  keyboardJS.bind('space', (e) => {
+  		e.preventRepeat();
+    	handle_click();
+        animateCSS('#nugget', 'pulse');
+  	  });
 
       setInterval(update_nugget, 1000);
     </script>
